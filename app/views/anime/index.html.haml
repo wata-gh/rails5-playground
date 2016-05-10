@@ -1,0 +1,45 @@
+= form_tag anime_index_path, method: :get do
+  = text_field_tag :q, params[:q]
+  - if params[:year].present?
+    = hidden_field_tag :year, params[:year]
+  - if params[:cours].present?
+    = hidden_field_tag :cours, params[:cours]
+  = submit_tag '検索'
+
+%table.anime_list
+  %tr
+    %th
+      ID
+    %th
+      クール
+    %th
+      タイトル
+    %th
+      公式Twitter
+    %th
+      画像
+  - @animes.each.with_index(1) do |anime, idx|
+    %tr
+      %td
+        = idx
+      %td
+        = "#{anime.cour.year}/#{anime.cour.cours}Q"
+      %td
+        - unless anime.sequel.zero?
+          = "第#{anime.sequel}期"
+          %br
+        = link_to anime.title, anime.public_url
+      %td
+        = link_to "@#{anime.twitter_account}", "https://twitter.com/#{anime.twitter_account}"
+        %br
+        = link_to "##{anime.twitter_hash_tag}", "https://twitter.com/hashtag/#{anime.twitter_hash_tag}"
+      %td
+        - if anime.image_urls.present?
+          - anime.image_urls.first(5).each_with_index do |image_url, i|
+            - if i.zero?
+              .image_box_large
+                = image_tag image_url, class: 'anime_image'
+            - else
+              .image_box_small
+                = image_tag image_url, class: 'anime_image'
+                

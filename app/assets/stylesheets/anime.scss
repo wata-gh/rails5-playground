@@ -1,0 +1,29 @@
+// Place all the styles related to the anime controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.image_box_large {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+.image_box_small {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+
+.anime_image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.anime_list {
+  border-collapse: collapse;
+  td,th {
+    border: 1px solid #aaaaaa;
+    padding: 5px;
+  }
+}

@@ -1,0 +1,15 @@
+%h1
+  hello haml
+
+%table
+  %tr
+    %th
+      id
+    %th
+      greet
+  - @hellos.each do |hello|
+    %tr
+      %td
+        = link_to hello.id, hello_path(id: hello.id)
+      %td
+        = hello.greet
