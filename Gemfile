@@ -19,6 +19,7 @@ gem 'haml-rails'
 gem 'httparty'
 gem 'opengraph_parser'
 gem 'sunspot_rails'
+gem 'unicorn'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
